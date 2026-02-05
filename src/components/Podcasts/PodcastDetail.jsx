@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom"; // ← add this
 import styles from "./PodcastDetail.module.css";
 import { formatDate } from "../../utils/formatDate";
 import GenreTags from "../UI/GenreTags";
+import likeButton from "../UI/LikeButton";
+import LikeButton from "../UI/LikeButton";
 
 export default function PodcastDetail({ podcast, genres }) {
   const [selectedSeasonIndex, setSelectedSeasonIndex] = useState(0);
@@ -92,6 +94,7 @@ export default function PodcastDetail({ podcast, genres }) {
                   Episode {index + 1}: {ep.title}
                 </p>
                 <p className={styles.episodeDesc}>{ep.description}</p>
+                <LikeButton episodeId={ep.id} />
               </div>
             </div>
           ))}
