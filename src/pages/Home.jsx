@@ -11,6 +11,8 @@ import styles from "./Home.module.css";
 import { genres } from "../data";
 import { PodcastContext } from "../context/PodcastContext";
 import { useContext } from "react";
+import PodcastCarousel from "../components/Podcasts/PocastCarousel";
+import { Carousel } from "react-bootstrap";
 
 /**
  * Home page of the Podcast Explorer app.
@@ -35,7 +37,7 @@ export default function Home() {
         <GenreFilter genres={genres} />
         <SortSelect />
       </section>
-
+      <PodcastCarousel />
       {loading && <Loading message="Loading podcasts..." />}
       {error && (
         <Error message={`Error occurred while fetching podcasts: ${error}`} />

@@ -5,6 +5,8 @@ import ShowDetail from "./pages/ShowDetail";
 import { PodcastProvider } from "./context/PodcastContext";
 import FavouritesPage from "./pages/Favourites";
 
+import "bootstrap/dist/css/bootstrap.min.css";
+
 /**
  * Root component of the Podcast Explorer app.
  *
@@ -23,6 +25,7 @@ export default function App() {
       <PodcastProvider>
         <Routes>
           <Route path="/" element={<Home />} />
+
           <Route path="/favourites" element={<FavouritesPage />} />
           <Route path={`/show/:id`} element={<ShowDetail />} />
         </Routes>
