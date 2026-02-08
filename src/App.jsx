@@ -23,7 +23,7 @@ export default function App() {
       <PodcastProvider>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/" element={<FavouritesPage />} />
+          <Route path="/favourites" element={<FavouritesPage />} />
           <Route path={`/show/:id`} element={<ShowDetail />} />
         </Routes>
       </PodcastProvider>
