@@ -7,6 +7,10 @@ export default function Header() {
         {" "}
         <Link to="/">🎙️ Podcast App</Link>
       </h1>
+      <div className={styles.pages}>
+        <p>Home</p>
+        <p>Favourites</p>
+      </div>
     </header>
   );
 }

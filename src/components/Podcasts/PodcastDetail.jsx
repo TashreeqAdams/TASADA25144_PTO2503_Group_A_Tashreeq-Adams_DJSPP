@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom"; // ← add this
 import styles from "./PodcastDetail.module.css";
 import { formatDate } from "../../utils/formatDate";
 import GenreTags from "../UI/GenreTags";
-import likeButton from "../UI/LikeButton";
 import LikeButton from "../UI/LikeButton";
 
 export default function PodcastDetail({ podcast, genres }) {
