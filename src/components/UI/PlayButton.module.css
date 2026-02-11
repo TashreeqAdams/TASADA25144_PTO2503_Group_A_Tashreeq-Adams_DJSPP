@@ -1,0 +1,17 @@
+.fixedPlayer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #1a1a1a;
+  border-top: 2px solid #333;
+  padding: 10px 20px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ensure the episode list doesn't get hidden behind the player */
+.container {
+  padding-bottom: 150px;
+}

@@ -7,7 +7,7 @@ import FavouritesPage from "./pages/Favourites";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FavouritesProvider } from "./context/FavouritesContext";
-import PodcastPlayer from "./components/UI/AudioPlayer";
+// import PodcastPlayer from "./components/UI/AudioPlayer";
 
 /**
  * Root component of the Podcast Explorer app.
@@ -34,7 +34,7 @@ export default function App() {
           </Routes>
         </PodcastProvider>
       </FavouritesProvider>
-      <PodcastPlayer />
+      {/* <PodcastPlayer /> */}
     </>
   );
 }
