@@ -14,7 +14,7 @@ import styles from "./GenreTags.module.css";
  *
  * @returns {JSX.Element} A styled list of genre tags.
  */
-export default function GenreTags({ genres }) {
+export default function GenreTags({ genres = [] }) {
   const genreSpans = genres.map((id) => {
     const match = genreMap.find((genre) => genre.id === id);
     return (

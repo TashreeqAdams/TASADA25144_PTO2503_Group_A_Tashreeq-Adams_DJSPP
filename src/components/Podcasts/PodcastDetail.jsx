@@ -85,18 +85,29 @@ export default function PodcastDetail({ podcast, genres }) {
         </div>
 
         <div className={styles.episodeList}>
-          {season.episodes.map((ep, index) => (
-            <div key={index} className={styles.episodeCard}>
-              <img className={styles.episodeCover} src={season.image} alt="" />
-              <div className={styles.episodeInfo}>
-                <p className={styles.episodeTitle}>
-                  Episode {index + 1}: {ep.title}
-                </p>
-                <p className={styles.episodeDesc}>{ep.description}</p>
-                <LikeButton episodeId={ep.id} />
+          {season.episodes.map((ep, index) => {
+            return (
+              <div key={index} className={styles.episodeCard}>
+                <img
+                  className={styles.episodeCover}
+                  src={season.image}
+                  alt=""
+                />
+                <div className={styles.episodeInfo}>
+                  <p className={styles.episodeTitle}>
+                    Episode {index + 1}: {ep.title}
+                  </p>
+                  <p className={styles.episodeDesc}>{ep.description}</p>
+                  <LikeButton
+                    episodeId={ep.episode}
+                    showId={podcast.id}
+                    seasonNumber={season.season}
+                    episode={ep}
+                  />
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </div>
