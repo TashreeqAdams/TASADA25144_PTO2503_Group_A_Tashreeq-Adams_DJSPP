@@ -1,13 +1,12 @@
-.favourites {
-  background-color: var(--background);
-}
-
 .favouritesContainer {
-  width: 80%;
+  min-height: 100vh;
   margin: auto;
   display: flex;
   flex-direction: column;
   gap: 20px;
+  background-color: var(--background);
+  padding: 20px;
+  margin: 0;
 }
 
 .favEpisode {
