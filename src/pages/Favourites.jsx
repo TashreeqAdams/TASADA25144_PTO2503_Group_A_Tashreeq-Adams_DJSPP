@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { FavouritesContext } from "../context/FavouritesContext";
 import styles from "./Favourites.module.css";
 
@@ -9,20 +9,35 @@ export default function FavouritesPage() {
     return <p>No favourites yet! Go like some episodes. ❤️</p>;
   }
 
+  // 1. Sort the entire list first (optional but helps)
+  const sortedFavourites = [...favourites].sort((a, b) => {
+    if (a.title !== b.title) return a.title.localeCompare(b.title); // Alphabetical by show
+    if (a.seasonNumber !== b.seasonNumber)
+      return a.seasonNumber - b.seasonNumber; // Then Season
+    return a.episodeId - b.episodeId; // Then Episode
+  });
+
+  // 2. Group by show title
+  const groupedFavourites = sortedFavourites.reduce((acc, fav) => {
+    const showName = fav.title; // Using the show title you saved in addFavourite
+    if (!acc[showName]) {
+      acc[showName] = [];
+    }
+    acc[showName].push(fav);
+    return acc;
+  }, {});
+
   return (
-    <div className={styles.favourites}>
+    <div className={styles.favouritesContainer}>
       <h1>My Favourites</h1>
-      <div>
+      <div className={styles.favourites}>
         {favourites.map((fav) => (
-          <div
-            key={fav.episodeId}
-            style={{ marginBottom: "20px", borderBottom: "1px solid #ccc" }}
-          >
+          <div key={fav.episodeId} className={styles.favEpisode}>
             {fav.image && <img src={fav.image} alt={fav.title} width="100" />}
 
             <h3>{fav.title}</h3>
             <p>
-              <strong>Show ID:</strong> {fav.showId}
+              <strong>Episode:</strong> {fav.episodeNum}
             </p>
             <p>
               <strong>Season:</strong> {fav.seasonNumber}

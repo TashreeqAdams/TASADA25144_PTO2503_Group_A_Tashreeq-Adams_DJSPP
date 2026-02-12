@@ -113,6 +113,7 @@ export default function PodcastDetail({ podcast, genres }) {
                       showId={podcast.id}
                       seasonNumber={season.season}
                       episode={ep}
+                      seasonImage={season.image}
                     />
 
                     <PlayButton onPlay={() => setActiveEpisode(ep)} />
