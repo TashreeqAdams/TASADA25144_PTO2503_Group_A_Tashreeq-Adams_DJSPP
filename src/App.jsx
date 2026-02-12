@@ -7,7 +7,7 @@ import FavouritesPage from "./pages/Favourites";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FavouritesProvider } from "./context/FavouritesContext";
-// import PodcastPlayer from "./components/UI/AudioPlayer";
+import { ThemeProvider } from "next-themes";
 
 /**
  * Root component of the Podcast Explorer app.
@@ -23,18 +23,19 @@ import { FavouritesProvider } from "./context/FavouritesContext";
 export default function App() {
   return (
     <>
-      <Header />
       <FavouritesProvider>
         <PodcastProvider>
-          <Routes>
-            <Route path="/" element={<Home />} />
+          <ThemeProvider>
+            <Header />
+            <Routes>
+              <Route path="/" element={<Home />} />
 
-            <Route path="/favourites" element={<FavouritesPage />} />
-            <Route path={`/show/:id`} element={<ShowDetail />} />
-          </Routes>
+              <Route path="/favourites" element={<FavouritesPage />} />
+              <Route path={`/show/:id`} element={<ShowDetail />} />
+            </Routes>
+          </ThemeProvider>
         </PodcastProvider>
       </FavouritesProvider>
-      {/* <PodcastPlayer /> */}
     </>
   );
 }

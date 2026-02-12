@@ -3,6 +3,7 @@ import "react-multi-carousel/lib/styles.css";
 import { useContext } from "react";
 import { PodcastContext } from "../../context/PodcastContext";
 import PodcastCard from "./PodcastCard";
+import styles from "./PodcastCarousel.module.css";
 
 const responsive = {
   desktop: {
@@ -28,26 +29,28 @@ export default function FeaturedCarousel() {
   if (!podcasts?.length) return null;
 
   return (
-    <Carousel
-      swipeable
-      draggable
-      showDots
-      responsive={responsive}
-      ssr
-      infinite
-      // autoPlay
-      // autoPlaySpeed={3000}
-      keyBoardControl
-      // customTransition="all .5"
-      transitionDuration={500}
-      containerClass="carousel-container"
-      removeArrowOnDeviceType={["tablet", "mobile"]}
-      dotListClass="custom-dot-list-style"
-      itemClass="px-3"
-    >
-      {podcasts.slice(0, 10).map((podcast) => (
-        <PodcastCard key={podcast.id} podcast={podcast} />
-      ))}
-    </Carousel>
+    <div className={styles.carouselContainer}>
+      <Carousel
+        swipeable
+        draggable
+        showDots
+        responsive={responsive}
+        ssr
+        infinite
+        // autoPlay
+        // autoPlaySpeed={3000}
+        keyBoardControl
+        // customTransition="all .5"
+        transitionDuration={500}
+        containerClass="carousel-container"
+        removeArrowOnDeviceType={["tablet", "mobile"]}
+        dotListClass="custom-dot-list-style"
+        itemClass="px-3"
+      >
+        {podcasts.slice(0, 10).map((podcast) => (
+          <PodcastCard key={podcast.id} podcast={podcast} />
+        ))}
+      </Carousel>
+    </div>
   );
 }

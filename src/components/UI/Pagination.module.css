@@ -4,6 +4,7 @@
   flex-wrap: wrap;
   gap: 0.5rem;
   padding: 1rem 0;
+  background-color: var(--background);
 }
 .pageButton {
   padding: 0.5rem 0.75rem;

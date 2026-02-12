@@ -1,0 +1,13 @@
+/* Target the specific carousel container */
+.carouselContainer {
+  padding: 2rem 1rem; /* Top/Bottom: 2rem, Left/Right: 1rem */
+  margin-top: 2rem; /* Creates space between the Header and the Carousel */
+  background-color: var(--background); /* Ensures it matches the theme */
+  transition: background-color 0.3s ease;
+}
+
+/* If you want to target the images or items inside the carousel specifically */
+.carouselItem {
+  padding: 10px;
+  border-radius: 8px;
+}

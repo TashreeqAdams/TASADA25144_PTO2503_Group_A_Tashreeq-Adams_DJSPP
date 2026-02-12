@@ -1,13 +1,21 @@
 :root {
+  /* Default Light Mode Values */
+  --background: #f9f9f9;
+  --text: #1a1a1a;
   --grey-text: #555;
+}
+
+[data-theme="dark"] {
+  --background: #1a1a1a;
+  --text: #f0f0f0;
+  --grey-text: #aaa; /* Lighter grey for dark mode readability */
+  --secondary-bg: #2a2a2a;
 }
 
 body {
   font-family: "Inter", sans-serif;
   margin: 0;
-  background: #f9f9f9;
-}
-
-.carousel-container {
-  padding: 2rem 0;
+  background-color: var(--background);
+  color: var(--text);
+  transition: background-color 0.3s ease;
 }

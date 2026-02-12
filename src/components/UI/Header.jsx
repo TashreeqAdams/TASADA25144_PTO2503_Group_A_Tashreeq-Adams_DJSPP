@@ -1,6 +1,7 @@
 import styles from "./Header.module.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import ThemeToggle from "./Theme";
 export default function Header() {
   // const navigate = useNavigate();
 
@@ -24,6 +25,7 @@ export default function Header() {
           <Link to="/favourites">Favourites</Link>
         </p>
       </div>
+      <ThemeToggle />
     </header>
   );
 }
