@@ -1,5 +1,6 @@
 import { useState, useContext } from "react";
 import { FavouritesContext } from "../context/FavouritesContext";
+import styles from "./Favourites.module.css";
 
 export default function FavouritesPage() {
   const { favourites } = useContext(FavouritesContext);
@@ -9,7 +10,7 @@ export default function FavouritesPage() {
   }
 
   return (
-    <div>
+    <div className={styles.favourites}>
       <h1>My Favourites</h1>
       <div>
         {favourites.map((fav) => (

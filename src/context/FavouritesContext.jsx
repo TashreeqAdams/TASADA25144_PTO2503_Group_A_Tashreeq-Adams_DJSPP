@@ -17,7 +17,10 @@ export const FavouritesProvider = ({ children }) => {
   const addFavourite = (episode) => {
     setFavourites((prev) => {
       const isAlreadyAdded = prev.some(
-        (item) => item.episodeId === episode.episodeId
+        (item) =>
+          item.episodeId === episode.episodeId &&
+          item.showId === episode.showId &&
+          item.seasonNumber === episode.seasonNumber
       );
       if (isAlreadyAdded) return prev;
       return [...prev, episode];
