@@ -33,18 +33,22 @@ export default function FavouritesPage() {
       <div className={styles.favourites}>
         {favourites.map((fav) => (
           <div key={fav.episodeId} className={styles.favEpisode}>
-            {fav.image && <img src={fav.image} alt={fav.title} width="100" />}
+            <div className={styles.episodeImage}>
+              {fav.image && <img src={fav.image} alt={fav.title} width="100" />}
+            </div>
+            <div className={styles.episodeDetails}>
+              <h3>{fav.title}</h3>
 
-            <h3>{fav.title}</h3>
-            <p>
-              <strong>Episode:</strong> {fav.episodeNum}
-            </p>
-            <p>
-              <strong>Season:</strong> {fav.seasonNumber}
-            </p>
-            <p>
-              <strong>Description:</strong> {fav.description}
-            </p>
+              <p>
+                <strong>Episode:</strong> {fav.episodeNum}
+              </p>
+              <p>
+                <strong>Season:</strong> {fav.seasonNumber}
+              </p>
+              <p>
+                <strong>Description:</strong> {fav.description}
+              </p>
+            </div>
           </div>
         ))}
       </div>
