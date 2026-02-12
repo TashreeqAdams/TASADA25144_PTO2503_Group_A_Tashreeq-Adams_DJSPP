@@ -114,6 +114,7 @@ export default function PodcastDetail({ podcast, genres }) {
                       seasonNumber={season.season}
                       episode={ep}
                     />
+
                     <PlayButton onPlay={() => setActiveEpisode(ep)} />
                   </div>
                 </div>

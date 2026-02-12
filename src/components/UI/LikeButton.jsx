@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { FavouritesContext } from "../../context/FavouritesContext";
 
 export default function LikeButton({
@@ -7,27 +7,29 @@ export default function LikeButton({
   seasonNumber,
   episode,
 }) {
-  const [likes, setLikes] = useState(0);
-  const [isLiked, setIsLiked] = useState(false);
-  const { addFavourite } = useContext(FavouritesContext);
+  const { favourites, addFavourite, removeFavourite } =
+    useContext(FavouritesContext);
+
+  // Derive directly from the global list
+  const isLiked = favourites.some(
+    (fav) =>
+      String(fav.showId) === String(showId) &&
+      String(fav.seasonNumber) === String(seasonNumber) &&
+      String(fav.episodeId) === String(episodeId)
+  );
 
   const handleLike = () => {
     if (isLiked) {
-      setLikes(likes - 1);
-      setIsLiked(false);
+      // Pass everything needed to identify this exact episode
+      removeFavourite(showId, seasonNumber, episodeId);
     } else {
-      setLikes(likes + 1);
-      setIsLiked(true);
+      addFavourite({
+        showId,
+        seasonNumber,
+        episodeId,
+        title: episode.title,
+      });
     }
-
-    addFavourite({
-      showId,
-      seasonNumber,
-      episodeId,
-      title: episode.title,
-      description: episode.description,
-      image: episode.image,
-    });
   };
 
   return (
