@@ -19,3 +19,12 @@ body {
   color: var(--text);
   transition: background-color 0.3s ease;
 }
+
+.globalPlayer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: white;
+}

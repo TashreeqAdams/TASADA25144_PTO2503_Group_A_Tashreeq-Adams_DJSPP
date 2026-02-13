@@ -6,11 +6,12 @@ import GenreTags from "../UI/GenreTags";
 import LikeButton from "../UI/LikeButton";
 import PlayButton from "../UI/PlayButton";
 import AudioPlayer from "react-h5-audio-player";
+import { useAudio } from "../../context/AudioContext";
 
 export default function PodcastDetail({ podcast, genres }) {
   const [selectedSeasonIndex, setSelectedSeasonIndex] = useState(0);
 
-  const [activeEpisode, setActiveEpisode] = useState(null);
+  const { playEpisode } = useAudio();
 
   const season = podcast.seasons[selectedSeasonIndex];
   const navigate = useNavigate(); // ← hook for navigation
@@ -116,28 +117,18 @@ export default function PodcastDetail({ podcast, genres }) {
                       seasonImage={season.image}
                     />
 
-                    <PlayButton onPlay={() => setActiveEpisode(ep)} />
+                    <PlayButton
+                      onPlay={() => {
+                        console.log("PLAY CLICKED", ep);
+                        playEpisode(ep);
+                      }}
+                    />
                   </div>
                 </div>
               );
             })}
           </div>
         </div>
-      </div>
-      <div>
-        {activeEpisode && (
-          <div className={styles.fixedPlayer}>
-            <div className={styles.playerInfo}>
-              <strong>{activeEpisode.title}</strong>
-              <button onClick={() => setActiveEpisode(null)}>Close</button>
-            </div>
-            <AudioPlayer
-              autoPlay
-              src={activeEpisode.file}
-              header={`Now Playing: ${activeEpisode.title}`}
-            />
-          </div>
-        )}
       </div>
     </>
   );

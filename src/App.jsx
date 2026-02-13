@@ -8,6 +8,8 @@ import FavouritesPage from "./pages/Favourites";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FavouritesProvider } from "./context/FavouritesContext";
 import { ThemeProvider } from "next-themes";
+import { AudioProvider, useAudio } from "./context/AudioContext";
+import AudioPlayer from "react-h5-audio-player";
 
 /**
  * Root component of the Podcast Explorer app.
@@ -23,19 +25,40 @@ import { ThemeProvider } from "next-themes";
 export default function App() {
   return (
     <>
-      <FavouritesProvider>
-        <PodcastProvider>
-          <ThemeProvider>
-            <Header />
-            <Routes>
-              <Route path="/" element={<Home />} />
+      <AudioProvider>
+        <FavouritesProvider>
+          <PodcastProvider>
+            <ThemeProvider>
+              <Header />
+              <Routes>
+                <Route path="/" element={<Home />} />
 
-              <Route path="/favourites" element={<FavouritesPage />} />
-              <Route path={`/show/:id`} element={<ShowDetail />} />
-            </Routes>
-          </ThemeProvider>
-        </PodcastProvider>
-      </FavouritesProvider>
+                <Route path="/favourites" element={<FavouritesPage />} />
+                <Route path={`/show/:id`} element={<ShowDetail />} />
+              </Routes>
+              <GlobalAudioPlayer />
+            </ThemeProvider>
+          </PodcastProvider>
+        </FavouritesProvider>
+      </AudioProvider>
     </>
+  );
+}
+
+function GlobalAudioPlayer() {
+  const { activeEpisode } = useAudio();
+
+  console.log("GLOBAL PLAYER STATE:", activeEpisode);
+
+  if (!activeEpisode) return null;
+
+  return (
+    <div className="globalPlayer">
+      <AudioPlayer
+        autoPlay
+        src={activeEpisode.file}
+        header={`Now Playing: ${activeEpisode.title}`}
+      />
+    </div>
   );
 }
