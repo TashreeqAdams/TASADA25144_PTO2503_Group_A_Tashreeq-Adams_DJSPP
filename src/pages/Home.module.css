@@ -1,9 +1,14 @@
+.main {
+  background-color: var(--background);
+}
+
 .controls {
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 1rem;
-  margin: 10px;
+  margin-bottom: 1rem;
+  background-color: var(--background);
 }
 
 @media (min-width: 768px) {

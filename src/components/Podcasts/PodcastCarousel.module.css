@@ -6,6 +6,10 @@
   background-color: var(--background);
 }
 
+.carousel-slide {
+  background-color: inherit; /* matches parent */
+}
+
 /* Ensure the library's internal track doesn't clip the bottom of your cards */
 :global(.react-multi-carousel-track) {
   padding-bottom: 10px;

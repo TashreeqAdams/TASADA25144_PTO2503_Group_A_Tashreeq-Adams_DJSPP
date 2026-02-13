@@ -37,7 +37,9 @@ export default function Home() {
         <GenreFilter genres={genres} />
         <SortSelect />
       </section>
+
       <PodcastCarousel />
+
       {loading && <Loading message="Loading podcasts..." />}
       {error && (
         <Error message={`Error occurred while fetching podcasts: ${error}`} />
