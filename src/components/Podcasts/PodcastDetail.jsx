@@ -115,6 +115,7 @@ export default function PodcastDetail({ podcast, genres }) {
                       episode={ep}
                       seasonImage={season.image}
                       showTitle={podcast.title}
+                      showImage={podcast.image}
                     />
 
                     <PlayButton

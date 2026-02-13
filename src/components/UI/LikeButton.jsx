@@ -34,6 +34,7 @@ export default function LikeButton({
         description: episode.description || "No description",
         image: seasonImage,
         episodeNum: episode.episode,
+        addedAt: new Date().toISOString(), // store timestamp in ISO format
       });
     }
   };

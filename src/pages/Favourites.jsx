@@ -30,38 +30,50 @@ export default function FavouritesPage() {
   return (
     <div className={styles.favouritesContainer}>
       <h1>My Favourites</h1>
+      <div className={styles.favDetails}>
+        {Object.entries(groupedFavourites).map(([showTitle, episodes]) => (
+          <div key={showTitle} className={styles.showGroup}>
+            {/* Show Title Heading */}
+            <h2 className={styles.showTitle}>{showTitle}</h2>
 
-      {Object.entries(groupedFavourites).map(([showTitle, episodes]) => (
-        <div key={showTitle} className={styles.showGroup}>
-          {/* Show Title Heading */}
-          <h2 className={styles.showTitle}>{showTitle}</h2>
+            {/* Episodes under that show */}
+            <div className={styles.favourites}>
+              {episodes.map((fav) => (
+                <div key={fav.episodeId} className={styles.favEpisode}>
+                  <div className={styles.episodeImage}>
+                    {fav.image && (
+                      <img src={fav.image} alt={fav.title} width="100" />
+                    )}
+                  </div>
 
-          {/* Episodes under that show */}
-          <div className={styles.favourites}>
-            {episodes.map((fav) => (
-              <div key={fav.episodeId} className={styles.favEpisode}>
-                <div className={styles.episodeImage}>
-                  {fav.image && (
-                    <img src={fav.image} alt={fav.title} width="100" />
-                  )}
+                  <div className={styles.episodeDetails}>
+                    <p>
+                      <strong>Season:</strong> {fav.seasonNumber}
+                    </p>
+                    <p>
+                      <strong>Episode:</strong> {fav.episodeNum}
+                    </p>
+                    <p>
+                      <strong>Description:</strong> {fav.description}
+                    </p>
+
+                    <p className={styles.addedDate}>
+                      <strong>Added: </strong>
+                      {new Date(fav.addedAt).toLocaleDateString("en-US", {
+                        month: "short",
+                        day: "numeric",
+                        year: "numeric",
+                        hour: "numeric",
+                        minute: "2-digit",
+                      })}
+                    </p>
+                  </div>
                 </div>
-
-                <div className={styles.episodeDetails}>
-                  <p>
-                    <strong>Season:</strong> {fav.seasonNumber}
-                  </p>
-                  <p>
-                    <strong>Episode:</strong> {fav.episodeNum}
-                  </p>
-                  <p>
-                    <strong>Description:</strong> {fav.description}
-                  </p>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }
