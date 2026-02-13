@@ -108,22 +108,24 @@ export default function PodcastDetail({ podcast, genres }) {
                       Episode {index + 1}: {ep.title}
                     </p>
                     <p className={styles.episodeDesc}>{ep.description}</p>
-                    <LikeButton
-                      episodeId={ep.episode}
-                      showId={podcast.id}
-                      seasonNumber={season.season}
-                      episode={ep}
-                      seasonImage={season.image}
-                      showTitle={podcast.title}
-                      showImage={podcast.image}
-                    />
+                    <div className={styles.episodeButtons}>
+                      <LikeButton
+                        episodeId={ep.episode}
+                        showId={podcast.id}
+                        seasonNumber={season.season}
+                        episode={ep}
+                        seasonImage={season.image}
+                        showTitle={podcast.title}
+                        showImage={podcast.image}
+                      />
 
-                    <PlayButton
-                      onPlay={() => {
-                        console.log("PLAY CLICKED", ep);
-                        playEpisode(ep);
-                      }}
-                    />
+                      <PlayButton
+                        onPlay={() => {
+                          console.log("PLAY CLICKED", ep);
+                          playEpisode(ep);
+                        }}
+                      />
+                    </div>
                   </div>
                 </div>
               );
