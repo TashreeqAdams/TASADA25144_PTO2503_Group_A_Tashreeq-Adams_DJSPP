@@ -32,3 +32,17 @@
   font-weight: bold;
   border-bottom: 2px solid var(--text);
 }
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .appHeader {
+    flex-direction: column;
+    gap: 1rem; /* Adds space between the stacked items */
+    text-align: center;
+  }
+
+  .pages {
+    display: flex;
+    gap: 1rem; /* Keeps "Home" and "Favourites" side-by-side if desired */
+  }
+}
