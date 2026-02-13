@@ -13,7 +13,7 @@ export function AudioProvider({ children }) {
     setActiveEpisode(null);
   };
 
-  // 🔥 Confirm before leaving if audio is playing
+  // Confirm before leaving if audio is playing
   useEffect(() => {
     const handleBeforeUnload = (event) => {
       if (activeEpisode) {

@@ -5,7 +5,6 @@ import { formatDate } from "../../utils/formatDate";
 import GenreTags from "../UI/GenreTags";
 import LikeButton from "../UI/LikeButton";
 import PlayButton from "../UI/PlayButton";
-import AudioPlayer from "react-h5-audio-player";
 import { useAudio } from "../../context/AudioContext";
 
 export default function PodcastDetail({ podcast, genres }) {
@@ -115,6 +114,7 @@ export default function PodcastDetail({ podcast, genres }) {
                       seasonNumber={season.season}
                       episode={ep}
                       seasonImage={season.image}
+                      showTitle={podcast.title}
                     />
 
                     <PlayButton

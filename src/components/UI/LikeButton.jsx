@@ -7,6 +7,7 @@ export default function LikeButton({
   seasonNumber,
   episode,
   seasonImage,
+  showTitle,
 }) {
   const { favourites, addFavourite, removeFavourite } =
     useContext(FavouritesContext);
@@ -28,7 +29,8 @@ export default function LikeButton({
         showId,
         seasonNumber,
         episodeId,
-        title: episode.title,
+        title: showTitle,
+        episodeTitle: episode.title,
         description: episode.description || "No description",
         image: seasonImage,
         episodeNum: episode.episode,
