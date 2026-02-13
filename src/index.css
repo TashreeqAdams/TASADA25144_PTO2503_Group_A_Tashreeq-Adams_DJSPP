@@ -3,6 +3,7 @@
   --background: #f9f9f9;
   --text: #1a1a1a;
   --grey-text: #555;
+  --tag-text: #1a1a1a;
 }
 
 [data-theme="dark"] {
@@ -10,6 +11,7 @@
   --text: #f0f0f0;
   --grey-text: #aaa; /* Lighter grey for dark mode readability */
   --secondary-bg: #2a2a2a;
+  --tag-text: #383636;
 }
 
 body {

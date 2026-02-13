@@ -6,6 +6,7 @@
   cursor: pointer;
   transition: transform 0.2s;
   height: 100%;
+  color: var(--text);
 }
 
 .card:hover {
@@ -39,9 +40,10 @@
   border-radius: 4px;
   display: inline-block;
   font-size: 0.8rem;
+  color: var(--tag-text) !important;
 }
 
 .updatedText {
   font-size: 0.8rem;
-  color: var(--grey-text);
+  color: var(--text);
 }
