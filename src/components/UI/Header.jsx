@@ -13,7 +13,7 @@ export default function Header() {
     <header className={styles.appHeader}>
       <h1>
         {" "}
-        <Link to="/">🎙️ Podcast App</Link>
+        <Link to="/">🎙️ PodNest</Link>
       </h1>
       <div className={styles.pages}>
         <p>
