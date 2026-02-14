@@ -94,7 +94,8 @@ export default function FavouritesPage() {
                         <strong>Season:</strong> {fav.seasonNumber}
                       </p>
                       <p>
-                        <strong>Episode:</strong> {fav.episodeNum}
+                        <strong>Episode:</strong> {fav.episodeNum}{" "}
+                        <strong>- {fav.episodeTitle}</strong>
                       </p>
                       <p>
                         <strong>Description:</strong> {fav.description}
